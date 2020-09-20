@@ -11,7 +11,7 @@ I made some images on my own. ~~ but the base of almost of them was not mine ~~
 
 
 * How to install 
-~~Download RoomEscape folder and play it~~
+ * ~~Download RoomEscape folder and play it~~
 
 * Game Scene
   * Room1
@@ -21,9 +21,9 @@ I made some images on my own. ~~ but the base of almost of them was not mine ~~
 
 
 * Information
- I made this using **Visual Studio 2019 **
+ * I made this using **Visual Studio 2019 **
 
 
 * Known issues
- there is no any issue. ~~maybe~~
+ *there is no any issue. ~~maybe~~
 
