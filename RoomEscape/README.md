@@ -2,7 +2,7 @@
 ## This is my first game i made.
 
 This game is in my repository OPSPP.
-** You can enter OPSPP repository by clicking [Here](https://github.com/FYpingping/OPSPP.git) **
+**You can enter OPSPP repository by clicking [Here](https://github.com/FYpingping/OPSPP.git)**
 
 
 I made 3 rooms and you should use some things to get through locked doors.
