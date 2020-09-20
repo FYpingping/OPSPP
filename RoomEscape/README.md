@@ -1,5 +1,5 @@
-#Room Escape
-##This is my first game i made.
+# Room Escape
+## This is my first game i made.
 
 This game is in my repository OPSPP.
 ** You can enter OPSPP repository by clicking [Here](https://github.com/FYpingping/OPSPP.git) **
