@@ -10,7 +10,7 @@ I made some images on my own. ~~ but the base of almost of them was not mine ~~
 
 
 
-* How to install
+* How to install 
 ~~ Download RoomEscape folder and play it ~~
 
 * Game Scene
