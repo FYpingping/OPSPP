@@ -9,7 +9,7 @@
 
 int main()
 { 
-  printf("뭘봐");
+  printf("");
   return 0;
 }
 ```
