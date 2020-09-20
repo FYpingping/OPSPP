@@ -11,7 +11,7 @@ I made some images on my own. ~~ but the base of almost of them was not mine ~~
 
 
 * How to install 
-  * ~~Download RoomEscape folder and play it~~
+  * **Download RoomEscape folder and play it**
 
 * Game Scene
   * Room1
