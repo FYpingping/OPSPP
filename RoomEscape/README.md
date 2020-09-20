@@ -1,7 +1,7 @@
 # Room Escape
 ## This is my first game i made.
 
-This game is in my repository OPSPP.
+This game is in my repository OPSPP. 
 **You can enter OPSPP repository by clicking [Here](https://github.com/FYpingping/OPSPP.git)**
 
 
@@ -21,7 +21,7 @@ I made some images on my own. ~~ but the base of almost of them was not mine ~~
 
 
 * Information
-  * I made this using **Visual Studio 2019 **
+  * I made this using **Visual Studio 2019**
 
 
 * Known issues
