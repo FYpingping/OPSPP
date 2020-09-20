@@ -29,4 +29,4 @@ I made some images on my own. ~~ but the base of almost of them was not mine ~~
 
 
 
-# ~~예전부터 게임 만드는 법 배우면 소개글을 영어로 써보고 싶었습니다.ㅎㅎ~~
+~~예전부터 게임 만드는 법 배우면 소개글을 영어로 써보고 싶었습니다.ㅎㅎ~~
