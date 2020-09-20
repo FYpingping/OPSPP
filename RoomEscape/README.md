@@ -25,5 +25,4 @@ I made some images on my own. ~~ but the base of almost of them was not mine ~~
 
 
 * Known issues
-  *there is no any issue. ~~maybe~~
-
+  * there is no any issue. ~~maybe~~
