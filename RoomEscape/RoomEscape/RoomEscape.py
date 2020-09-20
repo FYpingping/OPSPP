@@ -3,7 +3,7 @@ from bangtal import *
 scene1 = Scene('룸1', 'Image/배경-1.png')
 scene2 = Scene('룸2', 'Image/배경-2.png')
 scene3 = Scene('룸3', 'Image/배경-3.png')
-scene4 = Scene('숨겨진 길','Image/복도2.png')
+scene4 = Scene('게임', 'Image/background.png')
 
 door1 = Object('Image/문-오른쪽-닫힘.png')
 door1.locate(scene1, 800, 270)
@@ -35,6 +35,11 @@ keypad = Object('Image/키패드.png')
 keypad.setScale(1.5)
 keypad.locate(scene2, 890, 450)
 keypad.show()
+
+GameMachine = Object('Image/GameMachine.png')
+GameMachine.setScale(0.15)
+GameMachine.locate(scene2, 480, 260)
+GameMachine.show()
 
 rollpaper = Object('Image/roll paper2.png')
 rollpaper.setScale(0.03)
@@ -79,8 +84,32 @@ key2 = Object('Image/A key.png')
 key2.setScale(0.05)
 key2.locate(scene3, 500, 140)
 
+santa = Object('Image/santa.png')
+santa.x = 0
+santa.y = 450
+santa.locate(scene4, santa.x, santa.y)
+
+GameScreen = Object('Image/Screen.png')
+GameScreen.setScale(1.9)
+GameScreen.locate(scene4, 0, 0)
+
+GameEnd = Object('Image/end.png')
+GameEnd.locate(scene4, 610, 80)
+
+GamePlay = Object('Image/play.png')
+GamePlay.locate(scene4, 610, 130)
+
+GameRestart = Object('Image/restart.png')
+GameRestart.locate(scene4, 610, 180)
+
+GameStart = Object('Image/start.png')
+GameStart.locate(scene4, 610, 130)
 
 
+
+
+
+timer = Timer(10.)
 
 flowerpot.moved = False
 def clickflowerpot(x, y, action):
@@ -136,13 +165,17 @@ def clickrollpaper(x, y, action):
 door3.locked = True
 door3.closed = True
 def clickdoor3(x, y, action):
-    if door3.locked:
-        showMessage('문이 잠겨있습니다.')
-    elif door3.closed:
-        door3.setImage('Image/문-오른쪽-열림.png')
-        door3.closed = False
+    if GameMessage:
+        if door3.locked:
+            showMessage('문이 잠겨있습니다.')
+        elif door3.closed:
+            door3.setImage('Image/문-오른쪽-열림.png')
+            door3.closed = False
+        else:
+            scene3.enter()
+
     else:
-        scene3.enter()
+        showMessage('문이 잠겨있습니다.')
 
 def clickkeypad(x, y, action):
     showKeypad('CAUSW', door3)
@@ -194,6 +227,63 @@ def clickhiddendoor(x, y, action):
         endGame()
 
 
+def clickGameMachine(x, y, action):
+    scene4.enter()
+    GameScreen.show()
+    GameStart.show()
+    GameEnd.show()
+    timer.set(10.)
+    showTimer(timer)
+
+def clickGameEnd(x, y, action):
+    scene2.enter()
+    GameRestart.hide()
+    santa.x = 0
+    santa.locate(scene4, santa.x, santa.y)
+    santa.hide()
+    hideTimer()
+
+def clickGameStart(x, y, action):
+    GameEnd.hide()
+    GameStart.hide()
+    santa.show()
+    GamePlay.show()
+    timer.start()
+
+GameMessage = False
+def clickGamePlay(x, y, action):
+    global GameMessage
+    santa.x += 50
+    santa.locate(scene4, santa.x, santa.y)
+    if santa.x > 1280:
+        timer.stop()
+        if GameMessage == False:
+            showMessage("철컥 하고 잠금이 풀리는 소리가 났다.")
+            GameMessage = True
+        GamePlay.hide()
+        GameRestart.show()
+        GameEnd.show()
+        santa.hide()
+
+def clickGameRestart(x, y, action):
+    timer.set(10.)
+    timer.start()
+    GameEnd.hide()
+    GameRestart.hide()
+    santa.x = 0
+    santa.locate(scene4, santa.x, santa.y)
+    santa.show()
+    GamePlay.show()
+
+def timeout():
+    showMessage('실패')
+    santa.hide()
+    GamePlay.hide()
+    GameRestart.show()
+    GameEnd.show()
+
+
+
 
 key.onMouseAction = clickkey
 flowerpot.onMouseAction = clickflowerpot
@@ -213,5 +303,12 @@ secretbox.onMouseAction = clicksecretbox
 gun.onMouseAction = clickgun
 targetpaper.onMouseAction = clicktargetpaper
 hiddendoor.onMouseAction = clickhiddendoor
+GameMachine.onMouseAction = clickGameMachine
+GameEnd.onMouseAction = clickGameEnd
+GameStart.onMouseAction = clickGameStart
+GamePlay.onMouseAction = clickGamePlay
+GameRestart.onMouseAction = clickGameRestart
+timer.onTimeout = timeout
+
 
 startGame(scene1)
