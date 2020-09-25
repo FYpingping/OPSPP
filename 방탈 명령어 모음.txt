@@ -1,0 +1,13 @@
+from bantal import *
+
+
+장면 A = Scene("장면 이름", "장면위치")
+
+
+<객체>
+객체 A = Object("객체 위치")
+객체A.locate("장면 A", x좌표, y좌표)
+객체A.show() / 객체A.hide()
+객체A.setScale(number)
+
+
